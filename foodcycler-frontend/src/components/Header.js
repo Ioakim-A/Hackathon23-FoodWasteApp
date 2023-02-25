@@ -6,13 +6,13 @@ function Header() {
   return (
     <Navbar bg="light" expand="lg">
       <Container>
-        <Navbar.Brand href="#home">FoodCycler</Navbar.Brand>
+        <Navbar.Brand href="/">FoodCycler</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
                 <Nav.Link href="#fridge">Fridge</Nav.Link>
                 <Nav.Link href="#recipes">Recipes</Nav.Link>
-                <Nav.Link href="#market">Market</Nav.Link>
+                <Nav.Link href="/market">Market</Nav.Link>
                 <Nav.Link href="#savings">Savings</Nav.Link>
           </Nav>
           <Nav>
