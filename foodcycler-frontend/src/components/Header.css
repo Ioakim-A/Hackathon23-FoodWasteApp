@@ -1,0 +1,11 @@
+.title b {
+    color: rgb(0, 223, 48);
+}
+
+.navlink:hover {
+    color: rgb(0, 158, 34)!important
+}
+
+.navlink:active {
+    color: rgb(0, 223, 48)!important
+}
