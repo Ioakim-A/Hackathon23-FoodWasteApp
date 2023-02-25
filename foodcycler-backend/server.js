@@ -42,7 +42,7 @@ app.post("/api/createUser", (req, res) => {
           res.status(500).send("Internal Server Error");
         }
       } else {
-        res.status(201).send("User created successfully");
+        res.status(201).send(true);
       }
     });
   });
@@ -67,7 +67,7 @@ app.post("/api/createUser", (req, res) => {
   });
 
   app.get("/api/fridgeItems/:username", (req, res) => {
-    const sqlSelect = "SELECT * FROM fridge_items WHERE user_name = ?";
+    const sqlSelect = "SELECT item_name, item_qty, item_weight FROM fridge_items WHERE user_name = ?";
     const username = req.params.username;
     db.query(sqlSelect, username, (err, result) => {
       if (err) {

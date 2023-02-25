@@ -1,25 +1,17 @@
-import { useState, useEffect } from "react";
-import { GetUserFridgeContents } from "../utils/dbQuery";
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import fridgeImgHover from '../assets/fridge_open.png';
+import fridgeImg from '../assets/fridge_closed.png';
+import './Fridge.css';
 
-const Fridge = ({ username }) => {
-  const [fridgeItems, setFridgeItems] = useState([]);
-
-  useEffect(() => {
-    GetUserFridgeContents(username).then((items) => {
-      setFridgeItems(items);
-    });
-  }, [username]);
+const Fridge = () => {
+  const [isHovering, setIsHovering] = useState(false);
 
   return (
-    <div>
-      <h1>Fridge Items for {username}</h1>
-      <ul>
-        {fridgeItems.map((item) => (
-          <li key={item.id}>
-            {item.item_name}, Qty: {item.qty}, Weight: {item.weight}
-          </li>
-        ))}
-      </ul>
+    <div className="fridge-container">
+      <Link to="/fridgeContents">
+        <img className="fridge-img" src={isHovering ? fridgeImgHover : fridgeImg} alt="Fridge" onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)} />
+      </Link>
     </div>
   );
 };
