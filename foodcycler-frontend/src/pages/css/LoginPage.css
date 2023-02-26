@@ -1,0 +1,61 @@
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-image: linear-gradient(to right, rgb(22,67,96), rgb(27, 110, 165))
+  }
+
+.login-container button {
+    border-radius: 2em;
+    height: 2em;
+    width: fit-content;
+}
+
+  .login-container button:hover {
+      background-color: rgb(25, 131, 201);
+      color: azure;
+  }
+  
+  .titleText {
+    margin-top: 50px;
+    text-align: center;
+    color: azure;
+  }
+  
+  .login-form-container {
+    color: azure;  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    width: 300px;
+  }
+  
+  .login-form-container label {
+    width: 100%;
+  }
+
+  .login-form-container input {
+    width: 100%;
+    color: black!important;
+    align-items: flex-end;
+  }
+  
+  .create-account-container {
+    color: azure;  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 250px;
+  }
+  
+  .create-account-container p {
+    margin-top: 15px;  
+    margin-right: 8px;
+  }
+  
+  

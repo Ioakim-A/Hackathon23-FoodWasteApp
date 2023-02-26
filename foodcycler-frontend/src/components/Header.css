@@ -9,3 +9,13 @@
 .navlink:active {
     color: rgb(0, 223, 48)!important
 }
+
+.badge-container {
+    display: flex;
+    align-items: center;
+  }
+
+.badge-image {
+    height:2em;
+    width: 2.3em;
+}

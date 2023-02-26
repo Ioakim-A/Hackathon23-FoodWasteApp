@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { CreateUser } from "../utils/dbQuery/CreateUser.js";
+import './css/CreateUserPage.css'
 
 const CreateUserPage = () => {
     const [userName, setUserName] = useState("");
@@ -30,10 +31,11 @@ const CreateUserPage = () => {
     };
   
     return (
-      <div>
-        <h1>Create User Page</h1>
+      <div className="create-user-container">
+        <h1 className="titleText">Create New <b>User</b></h1>
         {createUserError && <p>{createUserError}</p>}
         <form
+          className="create-user-form-container"
           onSubmit={(e) => {
             e.preventDefault();
             handleCreateUser();
@@ -69,7 +71,7 @@ const CreateUserPage = () => {
           <button type="submit">Create User</button>
         </form>
       </div>
-      );
-      };
+    );
+};
 
 export default CreateUserPage;

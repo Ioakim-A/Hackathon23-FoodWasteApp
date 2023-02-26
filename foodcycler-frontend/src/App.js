@@ -5,6 +5,8 @@ import Home from './pages/Home';
 import LoginPage from './pages/LoginPage';
 import CreateUserPage from './pages/CreateUserPage';
 import Recipes from './pages/Recipes';
+import FridgeContentsPage from './pages/FridgeContentsPage';
+
 
 function App() {
   return (
@@ -16,6 +18,7 @@ function App() {
         <Route path="/loginUser" element={<LoginPage />} />
         <Route path="/createUser" element={<CreateUserPage />} />
         <Route path="/recipes" element={<Recipes />} />
+        <Route path="/fridgeContents" element={<FridgeContentsPage />} />
       </Routes>
     </>
   );
