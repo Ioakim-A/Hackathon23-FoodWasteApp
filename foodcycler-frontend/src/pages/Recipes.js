@@ -6,9 +6,8 @@ function Recipes() {
   const [searchQuery, setSearchQuery] = useState("");
   const [recipes, setRecipes] = useState([]);
 
-  const appId = "0ab2f586";
-  const appKey = "773e8bb9f8e3f7bd000ce0ec241c32e8";
-
+  const appId = process.env.REACT_APP_RECIPES_API_ID;
+  const appKey = process.env.REACT_APP_RECIPES_API_KEY;
   const searchRecipes = async (e) => {
     e.preventDefault();
     try {
@@ -32,6 +31,22 @@ function Recipes() {
           carbonRating: co2EmissionsClass,
           url,
         };
+      });
+      // Sort recipes by carbon rating
+      newRecipes.sort((recipe1, recipe2) => {
+        // Define a mapping of carbon ratings to numerical values for comparison
+        const carbonRatingOrder = {
+          "A+": 0,
+          A: 1,
+          B: 2,
+          C: 3,
+          D: 4,
+          E: 5,
+          F: 6,
+          G: 7,
+        };
+        // Compare the carbon ratings of the two recipes
+        return carbonRatingOrder[recipe1.carbonRating] - carbonRatingOrder[recipe2.carbonRating];
       });
       setRecipes(newRecipes);
     //   setSearchQuery("");
