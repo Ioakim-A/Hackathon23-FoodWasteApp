@@ -4,7 +4,7 @@ import { FaMapMarkerAlt } from 'react-icons/fa';
 
 const Marker = (props) => {
   const { lat, lng } = props;
-
+  console.log(lat, lng)
   return (
     <div style={{ position: 'absolute', transform: 'translate(-50%, -50%)' }}>
       <FaMapMarkerAlt color="red" size={30} />

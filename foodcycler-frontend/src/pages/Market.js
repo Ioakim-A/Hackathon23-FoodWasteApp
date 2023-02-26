@@ -17,10 +17,11 @@ async function getLanLng(postcodes) {
 
 
 function Market() {
-    const center = { lat: 37.7749, lng: -122.4194 };
-    const zoom = 8;
-    
     // ideally would request this to the backend and get the postcodes as a response.
+    const user = {
+      'lat': 51.506684,
+      'lng': -0.063787
+    }
     const postcodes = [
       'E1W2JJ',
       'E114RJ',
@@ -34,11 +35,11 @@ function Market() {
         setMarkers(data);
       });
     }, [postcodes]);
-  
+
     return (
       <div>
-        <h1>My Google Maps App</h1>
-        <Map center={center} zoom={zoom} markers={markers}/>
+        <h2>Food near you:</h2>
+        <Map center={user} zoom={11} markers={markers}/>
       </div>
     )
   }
