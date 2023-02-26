@@ -2,6 +2,7 @@ const express = require("express")
 const app = express()
 const mysql = require("mysql")
 const bodyParser = require("body-parser")
+const cookieSession = require('cookie-session');
 
 const db = mysql.createPool({
     host: 'localhost',
@@ -20,9 +21,14 @@ const corsOptions ={
 app.use(cors(corsOptions))
 app.use(express.json())
 app.use(bodyParser.urlencoded({extended: true}))
+app.use(cookieSession({
+    name: 'session',
+    keys: ['secretkey'],
+    maxAge: 24 * 60 * 60 * 1000 // 24 hours
+  }));
 
 app.post("/api/createUser", (req, res) => {
-    const sqlInsert = "INSERT INTO event (user_name,user_password) VALUES (?,?)";
+    const sqlInsert = "INSERT INTO user_table (user_name,user_password) VALUES (?,?)";
   
     const userName = req.body.userName;
     const userPassword = req.body.userPassword;
@@ -36,14 +42,14 @@ app.post("/api/createUser", (req, res) => {
           res.status(500).send("Internal Server Error");
         }
       } else {
-        res.status(201).send("User created successfully");
+        res.status(201).send(true);
       }
     });
   });
 
   app.post("/api/login", (req, res) => {
     const sqlSelect =
-      "SELECT * FROM event WHERE user_name = ? AND user_password = ?";
+      "SELECT * FROM user_table WHERE user_name = ? AND user_password = ?";
   
     const userName = req.body.userName;
     const userPassword = req.body.userPassword;
@@ -55,7 +61,19 @@ app.post("/api/createUser", (req, res) => {
       } else if (result.length === 0) {
         res.status(401).send("Invalid user name or password");
       } else {
-        res.status(200).send(true);
+        res.status(200).send(true); 
+      }
+    });
+  });
+
+  app.get("/api/fridgeItems/:username", (req, res) => {
+    const sqlSelect = "SELECT item_name, item_qty, item_weight FROM fridge_items WHERE user_name = ?";
+    const username = req.params.username;
+    db.query(sqlSelect, username, (err, result) => {
+      if (err) {
+        res.status(500).send({ error: "Error retrieving fridge items" });
+      } else {
+        res.send(result);
       }
     });
   });
