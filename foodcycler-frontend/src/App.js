@@ -7,6 +7,7 @@ import CreateUserPage from './pages/CreateUserPage';
 import Recipes from './pages/Recipes';
 import FridgeContentsPage from './pages/FridgeContentsPage';
 
+
 function App() {
   return (
     <>
