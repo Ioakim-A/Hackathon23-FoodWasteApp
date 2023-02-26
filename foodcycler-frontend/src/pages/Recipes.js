@@ -33,6 +33,22 @@ function Recipes() {
           url,
         };
       });
+      // Sort recipes by carbon rating
+      newRecipes.sort((recipe1, recipe2) => {
+        // Define a mapping of carbon ratings to numerical values for comparison
+        const carbonRatingOrder = {
+          "A+": 0,
+          A: 1,
+          B: 2,
+          C: 3,
+          D: 4,
+          E: 5,
+          F: 6,
+          G: 7,
+        };
+        // Compare the carbon ratings of the two recipes
+        return carbonRatingOrder[recipe1.carbonRating] - carbonRatingOrder[recipe2.carbonRating];
+      });
       setRecipes(newRecipes);
     //   setSearchQuery("");
     } catch (error) {
