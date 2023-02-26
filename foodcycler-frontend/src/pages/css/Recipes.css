@@ -2,51 +2,61 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 2rem;
-    padding: 2rem;
-  }
-  
-  .Recipe {
-    width: 30%;
-    background-color: #fff;
-    border-radius: 0.5rem;
-    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
-    overflow: hidden;
-  }
-  
-  .Recipe-img {
-    height: 200px;
-    object-fit: cover;
-  }
-  
-  .Recipe-content {
-    padding: 1rem;
-  }
-  
-  .Recipe-title {
+    }
+.carbon-rating {
     font-size: 1.25rem;
     font-weight: bold;
+    margin-top: 1rem;
+  }
+  
+  .carbon-rating-low {
+    color: green;
+  }
+  
+  .carbon-rating-medium {
+    color: orange;
+  }
+  
+  .carbon-rating-high {
+    color: red;
+  }
+  .recipe {
+    padding: 1rem;
+    margin: 1rem;
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    border-radius: 0.5rem;
+    }
+    
+    .recipe h3 {
+    margin-top: 0;
+    }
+    
+    .recipe img {
+    width: 100%;
+    border-radius: 0.5rem;
+    }
+    
+    .nutrition,
+    .carbon-rating {
+    margin-top: 1rem;
+    }
+    
+    .nutrition h4,
+    .carbon-rating h4 {
+    margin-top: 0;
+    }
+    
+    .nutrition li,
+    .carbon-rating li {
+    list-style: none;
     margin-bottom: 0.5rem;
-  }
-  
-  .Recipe-details {
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.875rem;
-    color: #666;
-  }
-  
-  .Recipe-details-item {
-    display: flex;
-    align-items: center;
-  }
-  
-  .Recipe-details-item:not(:first-child) {
-    margin-left: 1rem;
-  }
-  
-  .Recipe-details-icon {
-    width: 1.5rem;
-    height: 1.5rem;
-    margin-right: 0.25rem;
-  }
+    }
+    
+    .carbon-rating-text {
+    margin: 0;
+    }
+    .recipe img {
+        width: 20%;
+        border-radius: 0.5rem;
+        }
