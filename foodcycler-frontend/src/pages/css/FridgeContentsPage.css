@@ -1,0 +1,9 @@
+.title {
+    text-align: center;
+    color: rgb(26, 62, 161);
+}
+
+.fridgeItem {
+    display: "inline-block";
+    margin-left: 30px;
+}

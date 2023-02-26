@@ -42,6 +42,7 @@ function Recipes() {
 
   return (
     <div className="recipes">
+      <h1>Find recipes based on your fridge contents!</h1>
       <form onSubmit={searchRecipes}>
         <input
           type="text"
