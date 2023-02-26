@@ -4,6 +4,7 @@ Application that helps local communities to eliminate food waste in multiple way
 This project uses NPM, React.js and MySQL, so you will need these technologies up and running on your computer.
 
 To setup, you need to run 'npm install' in both foodcycler-frontend and foodcycler-backend.
+To run the frontend, you will also need API keys for the Google Maps API and the Edamam API.
 
 Then, you will need to run 'npm start' in the foodcycler-frontend directory and 'npm run dev' in the foodcycler-backend directory. 
 
