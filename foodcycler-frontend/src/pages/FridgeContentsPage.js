@@ -34,7 +34,11 @@ const FridgeContentsPage = () => {
     "apple": apple,
     "orange": orange,
     "milk": milk,
+<<<<<<< Updated upstream
     "steak": steak,
+=======
+    "Steak": steak,
+>>>>>>> Stashed changes
   };
 
   useEffect(() => {
@@ -56,20 +60,28 @@ const FridgeContentsPage = () => {
   const displayFridgeItems = () => {
     const items = [];
     let row = [];
+<<<<<<< Updated upstream
     let itemCount =0;
+=======
+>>>>>>> Stashed changes
 
     fridgeContents.forEach((item) => {
       const img = (
         <img
           src={fridgeItems[item.item_name]}
           alt={item.item_name}
+<<<<<<< Updated upstream
           style={{ width: "200px", height: "200px" }}
+=======
+          style={{ width: "250px", height: "250px" }}
+>>>>>>> Stashed changes
         />
       );
       const name = <h3>{capitalizeFirstLetter(item.item_name)}</h3>;
       const qty = (
         <div>
           <label>Quantity:</label>
+<<<<<<< Updated upstream
           <input type="number" value={item.item_qty} className="inputLine"/>
         </div>
       );
@@ -77,10 +89,20 @@ const FridgeContentsPage = () => {
         <div style={{marginRight:"6px"}}>
           <label>Weight(g):</label>
           <input type="number" value={item.item_weight} className="inputLine"/>
+=======
+          <input type="number" value={item.item_qty} />
+        </div>
+      );
+      const weight = (
+        <div>
+          <label>Weight:</label>
+          <input type="number" value={item.item_weight} />
+>>>>>>> Stashed changes
         </div>
       );
 
       row.push(
+<<<<<<< Updated upstream
           <div key={item.item_name} style={{ display: "inline-block", marginLeft: "25px", marginTop: "25px", backgroundColor: "rgb(0,0,0,0.1)", paddingBottom:"20px",paddingLeft:"20px",paddingRight:"20px", textAlign: "center" }}>
             {img}
             {name}
@@ -110,6 +132,35 @@ return (
     <div>{displayFridgeItems()}</div>
   </div>
 );
+=======
+        <div key={item.item_name} style={{ display: "inline-block", marginLeft: "25px", backgroundColor: "rgb(0,0,0,0.1)", paddingBottom:"20px",paddingLeft:"20px",paddingRight:"20px" }}>
+          {img}
+          {name}
+          {qty}
+          {weight}
+        </div>
+      );
+
+      if (row.length === 3) {
+        items.push(<div key={items.length}>{row}</div>);
+        row = [];
+      }
+    });
+
+    if (row.length > 0) {
+      items.push(<div key={items.length}>{row}</div>);
+    }
+
+    return items;
+  };
+
+  return (
+    <div style={styles.fridgeBackground}>
+      <h1 className="title">Fridge Contents</h1>
+      {displayFridgeItems()}
+    </div>
+  );
+>>>>>>> Stashed changes
 };
 
 export default FridgeContentsPage;
